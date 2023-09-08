@@ -1,0 +1,74 @@
+footer{
+    margin-top: 10vmax;
+    
+   padding: 2vmax; 
+   
+   background-color: white;
+   display: flex;
+   
+   align-items: center; 
+
+}
+.leftfooter{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.leftfooter h4{
+    font-family: "Franklin Gothic Medium","Arail Narrow",Arial, sans-serif;
+}
+.leftfooter p{
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.leftfooter img{
+    width: 10vmax;
+    margin: 1vmax;
+    cursor: pointer;
+}
+.midfooter{
+    width: 60%;
+    text-align: center;
+}
+.midfooter h1{
+    font-size: 4vmax;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: tomato;
+}
+.rightfooter{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightfooter h4{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+}
+
+.rightfooter a{
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.5s;
+    margin: 5px;
+    color: black;
+   
+}
+.rightfooter a:hover{
+    
+    color: tomato;
+}
+
+@media screen and (max-width:600px) {
+    .leftfooter h4{
+        /* font: 300 1.7vmax "Roboto"; */
+        font-size: 20px;
+
+    }
+    .leftfooter p{
+        /* font: 200 0.7vmax ; */
+        font-size: 14px;
+    }
+    
+}

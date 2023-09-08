@@ -1,0 +1,148 @@
+
+.loginicon{
+ cursor: pointer;  
+}
+.banner{
+
+    background-image: linear-gradient(to right,#635dc0,#3027ae);
+    height: 100vmin;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: wheat;
+
+    
+}
+.banner h1{
+    margin: 5vmax;
+    font: 600 2.5vmax "Roboto";
+}
+.banner p{
+    font: 300 1.4vmax "Roboto";
+}
+.banner a button{
+    background-color: wheat;
+    cursor: pointer;
+    margin-bottom: 5 vmax;
+    border: 1px solid wheat;
+    padding: 1vmax;
+    width: 9vmax;
+    font: 500 1vmax "Roboto";
+    transition: 0.5s;
+
+}
+
+.banner a button:hover{
+    background-color: rgba(255, 255, 255, 0);
+    color: wheat;
+}
+
+.banner::after{
+    /* content: "Hello My name is Yasho Mahajan"; */
+
+    content: "";
+    width: 100vw;
+    height: 100vmin;
+    background-color: wheat;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    clip-path: polygon(100% 77%, 40% 100%, 100% 100%);;
+     max-width: 100%;
+}
+
+.homeheading{
+   
+   text-align: center;
+    font-family: "Roboto";
+    font-size: 1.4vmax;
+    border-bottom: 1px solid black ;
+    width: 20vmax;
+    margin: auto;
+    padding: 1vmax;
+    margin:5vmax auto;
+}
+
+/* ============================================================= */
+/* Container keliye */
+
+.container{
+    display: flex;
+    margin: 2vmax auto;
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+/* =============================================00 */
+/* Product card Keliye */
+.productCard{
+    width:14vmax;
+    display:flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    margin:2vmax;
+    transition:0.5s;
+    padding-bottom: 0.5vmax;
+    /* border: solid black 1px; */
+}
+
+.productCard img{
+    width: 14vmax;
+    transition:0.5s;
+}
+
+.productCard div{
+    margin: 0.5vmax;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 0;
+}
+.productCard div span{
+    margin: 0.5vmax;
+    font: 300 0.7vmax 'Roboto';
+    /* margin-top: 10px; */
+}
+
+.productCard p{
+    font-family: "Roboto";
+    margin: 1.2vmax;
+    margin: 1vmax 0.5vmax;  /* vertical bottom */
+    margin-bottom: 0;
+}
+
+.productCard span{
+  margin: 0.5vmax 0.5vmax;
+  color: tomato;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 1vmax;   
+}
+
+
+.productCard img:hover{
+    box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+    transform: translateY(-1vmax);
+}
+
+@media screen and (max-width:600px) {
+    .productCard p{
+        font-size: 1.7vmax;
+    }
+    .productCard div{
+        margin: 0vmax;
+        display: block;
+    }
+
+    .productCard span{
+        font-size: 1.5vmax;
+    }
+
+    .productCard div span{
+        margin: 0 0.5vmax;
+        font: 300 1vmax "Roboto";
+    }
+    
+}

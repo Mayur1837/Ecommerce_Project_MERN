@@ -10,6 +10,9 @@ import { useNavigate } from 'react-router-dom'
 const ConfirmOrder = () => {
     const {shippingInfo,cartItems}=useSelector((state)=> state.cartReducer)
     const {user}= useSelector((state)=>state.user);
+    
+
+    // console.log(`user:-${JSON.stringify(user)}`)
     const navigate=useNavigate();
 
     const subTotal= cartItems.reduce(
@@ -76,9 +79,11 @@ const ConfirmOrder = () => {
                cartItems.map((item)=>(
                 <div key={item.product}>
                   <img src={item.image} alt="Product" />
-                  <Link to={`/products/getsingleproduct/${item.product}`}>
+                  <p onClick={()=>{
+                    navigate(`/products/getsingleproduct/${item.product}`)
+                  }}>
                     {item.name}
-                  </Link>
+                  </p>
                   <span>
                     {item.quantity} X Rs.{item.price} = 
                     <b> Rs.{item.price*item.quantity}</b>

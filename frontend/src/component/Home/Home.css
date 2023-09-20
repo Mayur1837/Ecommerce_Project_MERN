@@ -4,13 +4,19 @@
 }
 .banner{
 
-    background-image: linear-gradient(to right,#635dc0,#3027ae);
+    /* background-image: linear-gradient(to right,#635dc0,#3027ae); */
+    background-image: url("../../images/cover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     height: 100vmin;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    color: wheat;
+    /* color: wheat; */
+    color: white;
 
     
 }
@@ -35,7 +41,7 @@
 
 .banner a button:hover{
     background-color: rgba(255, 255, 255, 0);
-    color: wheat;
+    color: white;
 }
 
 .banner::after{

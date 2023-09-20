@@ -140,6 +140,27 @@
     cursor: pointer;
     transition: all 0.5s;
  }
+ .submitReview:hover {
+    background-color: rgb(197, 68, 45);
+    transform: scale(1.1);
+  }
+
+ .submitDialog {
+    display: flex;
+    flex-direction: column;
+  }
+  .submitDialogTextArea {
+    border: 1px solid rgba(0, 0, 0, 0.082);
+    margin: 1vmax 0;
+    outline: none;
+    padding: 1rem;
+    font: 300 1rem "Roboto";
+  }
+  
+
+  .MuiTypography-root {
+    background-color: white ;
+}
 
  
  .reviewsHeading{

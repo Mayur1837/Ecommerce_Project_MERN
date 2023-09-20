@@ -35,13 +35,14 @@
 
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
-import { Redirect, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import {Route } from "react-router-dom";
+import {redirect} from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {
+const ProtectedRoute = ({ isAdmin, element: element, ...rest }) => {
   const { loading, isAuthenticated, user } = useSelector((state) => state.user);
 
-  const navigate=useNavigate();
+  // const navigate=useNavigate();
   return (
     <Fragment>
       {loading === false && (
@@ -49,16 +50,16 @@ const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {
           {...rest}
           render={(props) => {
             if (isAuthenticated === false) {
-              // return <Redirect to="/login" />;
-              return navigate("/login");
+              return redirect("/login");
+              // return navigate("/login");
             }
 
             if (isAdmin === true && user.role !== "admin") {
-              // return <Redirect to="/login" />;
-              return navigate("/login");
+              return redirect("/login");
+              // return navigate("/login");
             }
 
-            return <Component {...props} />;
+            return <element {...props} />;
           }}
         />
       )}

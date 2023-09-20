@@ -22,8 +22,12 @@ import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
 import { clearErrors, createOrder } from "../../actions/orderAction";
 
+
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+
+  const x=JSON.stringify(orderInfo);
+  console.log(`orderInfo:${x}`)
 
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -46,9 +50,9 @@ const {shippingInfo,cartItems}=useSelector((state)=> state.cartReducer)
   const order={
     shippingInfo,
     orderItems: cartItems,
-    itemsPrice: orderInfo.subtotal,
+    itemsPrice: orderInfo.subTotal,
     taxPrice: orderInfo.tax,
-    shippingPrice: orderInfo.shipppingCharges,
+    shippingPrice: orderInfo.shippingCharges,
     totalPrice: orderInfo.totalPrice,
   };
 
@@ -58,19 +62,19 @@ const {shippingInfo,cartItems}=useSelector((state)=> state.cartReducer)
     // payBtn.current.disabled = true;
 
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // };
 
-      const data = await axios.post(
-        "/api/v1/payment/process",
-        paymentData,
-        config
-      );
+      // const data = await axios.post(
+      //   "/api/v1/payment/process",
+      //   paymentData,
+      //   config
+      // );
 
-      const client_secret = data.client_secret;
+      // const client_secret = data.client_secret;
 
     //   if (!stripe || !elements) {
     //     return;
@@ -99,11 +103,13 @@ const {shippingInfo,cartItems}=useSelector((state)=> state.cartReducer)
     //   } else {
         // if (result.paymentIntent.status === "succeeded") {
         //   navigate("/success");
-        order.paymentInfo={
+        order.PaymentInfo={
           id: "1",
           status:"success",
       }
+      console.log(`order: ${order}`)
       dispatch(createOrder(order));
+      
         navigate("/success")
         // }
         // else{

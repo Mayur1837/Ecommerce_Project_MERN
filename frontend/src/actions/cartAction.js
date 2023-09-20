@@ -20,8 +20,7 @@ export const addItemsToCart = (id, quantity) => async (dispatch,getState) => {
       }
     })
 // console.log(getState().cartItems);
-    localStorage.setItem("cartItems",JSON.stringify(getState().
-    cartReducer.cartItems));
+    localStorage.setItem("cartItems",JSON.stringify(getState().cartReducer.cartItems));
     // localStorage.setItem("cartItems",JSON.stringify(getState().payload));
 
   };
@@ -33,8 +32,7 @@ export const addItemsToCart = (id, quantity) => async (dispatch,getState) => {
       type: REMOVE_CART_ITEM,
       payload: id,
     })
-    localStorage.setItem("cartItems",JSON.stringify(getState().
-    cartReducer.cartItems));
+    localStorage.setItem("cartItems",JSON.stringify(getState().cartReducer.cartItems));
   }
 
   // SAVE SHIPPING INFO

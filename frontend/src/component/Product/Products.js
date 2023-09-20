@@ -11,33 +11,36 @@ import Typography from "@material-ui/core/Typography";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 
-
-const categories=[
+const categories = [
   "Laptop",
   "Footwear",
   "Bottom",
   "Tops",
   "Attire",
   "Camera",
-  "SmartPhones"
-]
-
+  "SmartPhones",
+];
 
 const Products = () => {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 1000000]);
-  const [category,setCategory]=useState("");
-  const [ratings,setRatings]=useState(0);
+  const [category, setCategory] = useState("");
+  const [ratings, setRatings] = useState(0);
 
-  const alert=useAlert();
- 
-  const { loading, error, products, productcount, resultperpage } = useSelector(
-    (state) => state.products
-  );
+  const alert = useAlert();
+
+  const {
+    loading,
+    error,
+    products,
+    productcount,
+    resultperpage,
+    filteredProductsCount,
+  } = useSelector((state) => state.products);
 
   const priceHandler = (event, newPrice) => {
-    event.preventDefault()       
+    event.preventDefault();
     setPrice(newPrice);
   };
   //   const keyword= match.param.keyword;
@@ -47,14 +50,15 @@ const Products = () => {
     setCurrentPage(e);
   };
 
+  let count = filteredProductsCount;
+
   useEffect(() => {
-    if(error)
-    {
-      alert.error(error)
-      dispatch(clearErrors())
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword, currentPage,price,category,ratings));
-  }, [dispatch, keyword, currentPage,price,category,ratings,alert,error]);
+    dispatch(getProduct(keyword, currentPage, price, category, ratings));
+  }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
 
   // let count=filteredProductsCount;
 
@@ -64,7 +68,7 @@ const Products = () => {
         <Loader />
       ) : (
         <>
-        <MetaData title="PRODUCTS -- ECOMMERCE"/>
+          <MetaData title="PRODUCTS -- ECOMMERCE" />
           <h2 className="productsHeading">Products</h2>
 
           <div className="products">
@@ -87,32 +91,31 @@ const Products = () => {
 
             <Typography>Categories</Typography>
             <ul className="categoryBox">
-              
-                {
-                  categories.map((category)=>(
-                    <li
-                    className="category-link"
-                    keys={category}
-                    onClick={()=>{setCategory(category)}}
-                    
-                    >
-                      {category}
-                    </li>
-                  ))
-                }
+              {categories.map((category) => (
+                <li
+                  className="category-link"
+                  keys={category}
+                  onClick={() => {
+                    setCategory(category);
+                  }}
+                >
+                  {category}
+                </li>
+              ))}
             </ul>
 
             <fieldset>
-              
-              <legend><Typography>Rating</Typography></legend>
+              <legend>
+                <Typography>Rating</Typography>
+              </legend>
               <Slider
-              value={ratings}
-              onChange={(e,newRating)=>{
-                setRatings(newRating);
-              }}
-              min={0}
-              max={5}
-              valueLabelDisplay="auto"
+                value={ratings}
+                onChange={(e, newRating) => {
+                  setRatings(newRating);
+                }}
+                min={0}
+                max={5}
+                valueLabelDisplay="auto"
               ></Slider>
             </fieldset>
           </div>

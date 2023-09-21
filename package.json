@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "CRREATIGN A ECOMMERCE WEBSITE",
   "main": "index.js",
+  
+
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js",
+    "engines": { "node": ">=14.20.1" }
   },
   "author": "YASHODIP",
   "license": "ISC",
